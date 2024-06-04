@@ -157,4 +157,4 @@ const a = new ThisA();
 console.log(a.getName());
 
 const b = a.getName;
-b();
+// b();
