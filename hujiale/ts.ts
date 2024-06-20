@@ -44,7 +44,3 @@ type IsEqual<T, U> =
 
 let x: <T>() => (T extends number ? 1 : 2);
 let y: <T>() => (T extends string ? 1 : 2);
-
-const a = x<boolean>();
-const b = x<symbol>();
-
