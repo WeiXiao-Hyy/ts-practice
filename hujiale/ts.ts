@@ -1,3 +1,5 @@
+import type {Equal, Expect} from "./test-utils";
+
 type t = keyof unknown; // never
 
 // console.log(typeof t);
@@ -44,3 +46,19 @@ type IsEqual<T, U> =
 
 let x: <T>() => (T extends number ? 1 : 2);
 let y: <T>() => (T extends string ? 1 : 2);
+
+
+type arrType<T extends readonly any[], U> = {
+  [key in T[number]]: true
+}[U]
+
+type case1 = arrType<[false, 2, 3, 5, 6, 7], false>;
+type case2 = arrType<[1 | 2], 1>;
+
+let res1: case1;
+let res2: case2
+
+type inferType1<T> = T extends Array<infer U> ? U : T;
+type inferType2<T> = T extends (infer U)[] ? U : T;
+
+let res3: inferType1<Array<number>>
