@@ -62,3 +62,5 @@ type inferType1<T> = T extends Array<infer U> ? U : T;
 type inferType2<T> = T extends (infer U)[] ? U : T;
 
 let res3: inferType1<Array<number>>
+
+
